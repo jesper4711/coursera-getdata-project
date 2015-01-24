@@ -57,7 +57,7 @@ run_analysis <- function() {
   cols <- gsub("BodyBody", "Body", cols)
   cols <- gsub("[(),--]", "", cols)
   colnames(data) <- cols
-  
+   
   ## creating a new (tidy) data frame with averaged variables
   t1 <- aggregate(data[,1], by=list(data$subjects,data$labels), FUN=mean)
   tdata <- data.frame(t1[,3])
