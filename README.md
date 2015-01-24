@@ -17,6 +17,7 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 ## Running the code
 The file run_analysis.R needs the dataset to be in a subfolder called UCI HAR Dataset/ <br>
-Execution of the script run_analysis.R does preprocessing of the dataset as described above and returns a "tidy" dataset for further processing.
+Execution of the script run_analysis.R does preprocessing of the dataset as described above and returns a "tidy" dataset for further processing.<br>
+<br>
+The returned dataset is described in the file Codebook.md
 
-## The dataset is described in the file Codebook.md
