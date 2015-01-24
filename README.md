@@ -1,5 +1,5 @@
 # coursera getting and cleaning data
-# course project: Activity tracking
+## course project: Activity tracking
 
 Instructions:
  
