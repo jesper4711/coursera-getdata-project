@@ -47,8 +47,6 @@ run_analysis <- function() {
   data <- rbind(train,test)
   
   # Generate a "tidy" data set
-  #tidy_data <- data[, lapply(.SD, mean), by=list(label, subject)]
-  
   # Clean the variable names
   cols <- colnames(data)
   cols <- gsub("mean", "Mean", cols)
@@ -61,16 +59,17 @@ run_analysis <- function() {
   ## creating a new (tidy) data frame with averaged variables
   t1 <- aggregate(data[,1], by=list(data$subjects,data$labels), FUN=mean)
   tdata <- data.frame(t1[,3])
-  for (i in 1:length(cols)){
+  N <- length(cols)-2
+  for (i in 1:N){
     ti <- aggregate(data[,i], by=list(data$subjects,data$labels), FUN=mean)
     tdata[,i] <- ti[,3]
   }
-  tdata[,length(cols)-1] <- ti[,1]
-  tdata[,length(cols)] <- ti[,2]
+  tdata[,length(cols)-1] <- ti[,2]
+  tdata[,length(cols)] <- ti[,1]
   colnames(tdata) <- cols
   
   # Write the tidy data to file
-  write.csv(tdata, file = "tidy_data.csv", row.names = FALSE, quote = FALSE)
+  write.table(tdata, file = "tidy_data.txt", row.names = FALSE, quote = FALSE)
   
   # Return the tidy data set
   tdata
